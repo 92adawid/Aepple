@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aepple</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f5f7;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 48px;
+            padding: 0 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1d1d1f;
+            text-decoration: none;
+            letter-spacing: -0.3px;
+        }
+
+        /* Hamburger button – two lines, aligned to the far right */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px 0 8px 16px;
+            margin-left: auto;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: #1d1d1f;
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Animate to X when menu is open */
+        .hamburger.open .bar:first-child {
+            transform: translateY(4px) rotate(45deg);
+        }
+
+        .hamburger.open .bar:last-child {
+            transform: translateY(-4px) rotate(-45deg);
+        }
+
+        /* Navigation drawer */
+        nav {
+            display: none;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.97);
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        nav.open {
+            display: flex;
+        }
+
+        nav a {
+            padding: 16px 20px;
+            font-size: 17px;
+            font-weight: 400;
+            color: #1d1d1f;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            transition: background-color 0.15s ease;
+        }
+
+        nav a:last-child {
+            border-bottom: none;
+        }
+
+        nav a:hover {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">Aepple</a>
+            <button class="hamburger" id="hamburger" aria-label="Öppna meny" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        <nav id="nav-menu">
+            <a href="#">Butik</a>
+            <a href="#">Mac</a>
+            <a href="#">iPhone</a>
+            <a href="#">iPad</a>
+            <a href="#">Support</a>
+        </nav>
+    </header>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('open');
+            hamburger.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+            hamburger.setAttribute('aria-label', isOpen ? 'Stäng meny' : 'Öppna meny');
+        });
+    </script>
+
+</body>
+</html>
