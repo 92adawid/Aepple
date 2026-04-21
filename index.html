@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Apple</title>
+	<link rel="stylesheet" href="header.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<style>
+		/* ===== CSS Variables & Theme System ===== */
+		:root {
+			--sk-glyph: rgb(0, 0, 0);
+			--sk-glyph-gray: rgb(29, 29, 31);
+			--sk-glyph-gray-secondary: rgb(110, 110, 115);
+			--sk-glyph-blue: rgb(0, 102, 204);
+			--sk-fill: rgb(255, 255, 255);
+			--sk-fill-tertiary: rgb(245, 245, 247);
+			--sk-fill-gray: rgb(29, 29, 31);
+			--sk-fill-blue: rgb(0, 113, 227);
+			--sk-body-text-color: rgb(29, 29, 31);
+			--sk-headline-text-color: rgb(29, 29, 31);
+			--sk-body-background-color: rgb(255, 255, 255);
+			--sk-body-link-color: rgb(0, 102, 204);
+			--sk-focus-color: #0071e3;
+			--sk-button-background: rgb(0, 113, 227);
+			--sk-button-background-hover: #0076DF;
+			--sk-button-background-active: #006EDB;
+		}
+
+		.theme-dark {
+			--sk-glyph: rgb(255, 255, 255);
+			--sk-glyph-gray: rgb(245, 245, 247);
+			--sk-glyph-gray-secondary: rgb(134, 134, 139);
+			--sk-fill: rgb(0, 0, 0);
+			--sk-fill-tertiary: rgb(29, 29, 31);
+			--sk-fill-gray: rgb(245, 245, 247);
+			--sk-body-background-color: rgb(0, 0, 0);
+			--sk-body-text-color: rgb(245, 245, 247);
+			--sk-headline-text-color: rgb(245, 245, 247);
+			--sk-body-link-color: rgb(41, 151, 255);
+		}
+
+		/* ===== Reset Styles ===== */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		html {
+			scroll-behavior: smooth;
+			font-size: 106.25%;
+		}
+
+		body {
+			font-family: SF Pro Text, SF Pro Icons, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+			background-color: var(--sk-body-background-color);
+			color: var(--sk-body-text-color);
+			font-size: 17px;
+			line-height: 1.4705882353;
+			font-weight: 400;
+			letter-spacing: -.022em;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		main {
+			padding-top: 44px;
+			max-width: 2560px;
+			margin: 0 auto;
+		}
+
+		/* ===== Ribbon Section ===== */
+		.section-ribbon {
+			background-color: var(--sk-fill-tertiary);
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		}
+
+		.ribbon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 16px 20px;
+			text-align: center;
+			background-color: var(--sk-fill-tertiary);
+		}
+
+		.ribbon-content-wrapper {
+			max-width: 980px;
+			width: 100%;
+		}
+
+		.ribbon-content {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 16px;
+			flex-wrap: wrap;
+		}
+
+		.ribbon-content span {
+			font-size: 14px;
+			line-height: 1.2857742857;
+			font-weight: 400;
+			letter-spacing: -.016em;
+		}
+
+		.ribbon-link {
+			font-size: 14px;
+			color: var(--sk-fill-blue);
+			text-decoration: none;
+			white-space: nowrap;
+			transition: text-decoration 0.2s ease;
+		}
+
+		.ribbon-link:hover {
+			text-decoration: underline;
+		}
+
+		.ribbon-link:focus-visible {
+			outline: 2px solid var(--sk-focus-color);
+			outline-offset: 3px;
+		}
+
+		/* ===== Section & Tile Layout ===== */
+		.section {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 12px;
+			text-align: center;
+			margin-bottom: 12px;
+		}
+
+		.section-hero {
+			grid-template-columns: 1fr 1fr;
+			background-color: var(--sk-body-background-color);
+		}
+
+		.section-hero .tile-wrapper:first-child {
+			grid-column: 1 / -1;
+			aspect-ratio: auto;
+			min-height: 700px;
+			background-color: var(--sk-fill-tertiary);
+		}
+
+		.tile-wrapper {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			aspect-ratio: auto;
+			background-color: var(--sk-fill-tertiary);
+			overflow: clip;
+			padding: 48px 0 56px;
+			min-height: var(--hero-content-height, 580px);
+			box-sizing: border-box;
+		}
+
+		.tile-link {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 3;
+			text-decoration: none;
+		}
+
+		.tile-link:hover {
+			text-decoration: none;
+		}
+
+		.tile-link:focus-visible {
+			outline: 2px solid var(--sk-focus-color);
+			outline-offset: 3px;
+		}
+
+		/* ===== Tile Content & Typography ===== */
+		.tile-content {
+			position: absolute;
+			top: 120px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 2;
+			color: var(--sk-body-text-color);
+			text-align: center;
+			width: 90%;
+			max-width: 600px;
+		}
+
+		.theme-dark .tile-content {
+			color: var(--sk-body-text-color);
+		}
+
+		.tile-copy-wrapper {
+			margin-bottom: 16px;
+			position: relative;
+			pointer-events: none;
+			z-index: 2;
+		}
+
+		.tile-headline {
+			font-size: 56px;
+			line-height: 1.0714285714;
+			font-weight: 600;
+			letter-spacing: -.005em;
+			font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+			margin: 0 auto;
+		}
+
+		.tile-headline.logo-image {
+			font-size: 0;
+		}
+
+		.tile-headline.logo-image picture {
+			max-width: 200px;
+			height: auto;
+		}
+
+		.tile-headline.logo-image img {
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		.tile-subhead {
+			font-size: 28px;
+			line-height: 1.1428571429;
+			font-weight: 400;
+			letter-spacing: .007em;
+			font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+			margin-top: 6px;
+			margin-inline-start: auto;
+			margin-inline-end: auto;
+		}
+
+		.theme-dark .tile-subhead {
+			color: var(--sk-body-text-color);
+		}
+
+		.tile-callout {
+			color: var(--sk-glyph-gray-secondary);
+			margin-top: 9px;
+			margin-bottom: -3px;
+			font-size: 14px;
+		}
+
+		.theme-dark .tile-callout {
+			color: rgb(134, 134, 139);
+		}
+
+		.tile-ctas {
+			display: grid;
+			justify-content: center;
+			column-gap: 17px;
+			margin-top: 17px;
+		}
+
+		.tile-ctas:has(:nth-child(2)) {
+			grid-template-columns: min-content min-content;
+			column-gap: 17px;
+			justify-content: center;
+		}
+
+		/* ===== Button System ===== */
+		.button {
+			--sk-button-color: rgb(255, 255, 255);
+			--sk-button-color-hover: var(--sk-button-color);
+			--sk-button-background: rgb(0, 113, 227);
+			--sk-button-background-hover: #0076DF;
+			--sk-button-background-active: #006EDB;
+			--sk-button-border-color: transparent;
+			--sk-button-border-radius: 980px;
+			--sk-button-padding-horizontal: 16px;
+			--sk-button-padding-vertical: 9px;
+			--sk-button-border-width: 1px;
+			--sk-button-margin-horizontal: 14px;
+			--sk-button-margin-vertical: 14px;
+
+			font-size: 14px;
+			line-height: 1.2857742857;
+			font-weight: 400;
+			letter-spacing: -.016em;
+			font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+			
+			background: var(--sk-button-background);
+			color: var(--sk-button-color);
+			border-color: var(--sk-button-border-color);
+			padding: calc(var(--sk-button-padding-vertical) - var(--sk-button-border-width)) calc(var(--sk-button-padding-horizontal) - var(--sk-button-border-width));
+			border-radius: var(--sk-button-border-radius);
+			border: solid var(--sk-button-border-width);
+			cursor: pointer;
+			display: inline-block;
+			text-align: center;
+			text-decoration: none;
+			white-space: nowrap;
+			z-index: 4;
+			transition: all 0.3s ease;
+		}
+
+		.button:hover {
+			background: var(--sk-button-background-hover);
+			color: var(--sk-button-color-hover);
+			text-decoration: none;
+			border-color: transparent;
+		}
+
+		.button:active {
+			background: var(--sk-button-background-active);
+			color: var(--sk-button-color);
+			outline: none;
+		}
+
+		.button:focus-visible {
+			outline: 2px solid var(--sk-focus-color);
+			outline-offset: 3px;
+		}
+
+		.button:disabled {
+			pointer-events: none;
+			opacity: 0.42;
+		}
+
+		.button-neutral {
+			--sk-button-background: rgb(29, 29, 31);
+			--sk-button-background-hover: #272729;
+			--sk-button-background-active: #18181A;
+			--sk-button-color: rgb(255, 255, 255);
+		}
+
+		.button-secondary {
+			--sk-button-background: transparent;
+			--sk-button-background-hover: #0076DF;
+			--sk-button-background-active: #006EDB;
+			--sk-button-color: rgb(0, 102, 204);
+			--sk-button-color-hover: rgb(255, 255, 255);
+			--sk-button-border-color: rgb(0, 102, 204);
+		}
+
+		.button-secondary-neutral {
+			--sk-button-background: transparent;
+			--sk-button-background-hover: #272729;
+			--sk-button-background-active: #18181A;
+			--sk-button-color: rgb(29, 29, 31);
+			--sk-button-color-hover: rgb(255, 255, 255);
+			--sk-button-border-color: rgb(29, 29, 31);
+		}
+
+		.theme-dark .button-neutral {
+			--sk-button-background: rgb(245, 245, 247);
+			--sk-button-background-hover: rgb(255, 255, 255);
+			--sk-button-background-active: #EDEDF2;
+			--sk-button-color: rgb(0, 0, 0);
+		}
+
+		.theme-dark .button-secondary {
+			--sk-button-color: rgb(41, 151, 255);
+			--sk-button-border-color: rgb(41, 151, 255);
+		}
+
+		/* ===== Image Wrapper ===== */
+		.tile-image-wrapper {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.tile-image-wrapper picture {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		.tile-image-wrapper img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.tile-image-wrapper.image-top img {
+			top: 0;
+		}
+
+		/* ===== Promo Section ===== */
+		.section-promo {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 12px;
+			box-sizing: border-box;
+			padding-left: max(12px, env(safe-area-inset-left) - 12px);
+			padding-right: max(12px, env(safe-area-inset-right) - 12px);
+		}
+
+		.section-promo .tile-wrapper {
+			min-height: var(--promo-content-height, 480px);
+			border-radius: 12px;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+		}
+
+		.section-promo .tile-content {
+			position: relative;
+			padding: 24px;
+			z-index: 2;
+			transform: none;
+			top: auto;
+			left: auto;
+		}
+
+		.section-promo .tile-headline {
+			font-size: 40px;
+			line-height: 1.1;
+			font-weight: 600;
+			letter-spacing: 0em;
+			font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+		}
+
+		.section-promo .tile-subhead {
+			font-size: 21px;
+			line-height: 1.1904761905;
+			font-weight: 400;
+			letter-spacing: .011em;
+			font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+			margin-top: 4px;
+		}
+
+		.section-promo .tile-callout {
+			font-size: 14px;
+			line-height: 1.2857742857;
+			margin-top: 8px;
+		}
+
+		.section-promo .tile-ctas {
+			column-gap: 14px;
+		}
+
+		.theme-dark.tile-wrapper {
+			background-color: #000;
+		}
+
+		.theme-dark .tile-copy-wrapper {
+			color: #f5f5f7;
+		}
+
+		.theme-dark .tile-callout {
+			color: #86868b;
+		}
+
+		/* ===== Gallery Section ===== */
+		.section-endless-entertainment-gallery {
+			background-color: #000;
+			color: #fff;
+			padding: 80px 20px;
+		}
+
+		.media-gallery-headline-container {
+			text-align: center;
+			margin-bottom: 60px;
+		}
+
+		.media-gallery-headline {
+			font-size: 56px;
+			line-height: 1.0714285714;
+			font-weight: 600;
+			letter-spacing: -.005em;
+			font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+			margin-bottom: 20px;
+		}
+
+		.entertainment-grid {
+			max-width: 980px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+			gap: 16px;
+		}
+
+		.entertainment-item {
+			position: relative;
+			aspect-ratio: 1;
+			border-radius: 12px;
+			overflow: hidden;
+			cursor: pointer;
+			text-decoration: none;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.entertainment-item:hover {
+			transform: scale(1.05);
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+		}
+
+		.entertainment-item:focus-visible {
+			outline: 2px solid var(--sk-focus-color);
+			outline-offset: 3px;
+		}
+
+		.entertainment-item-content {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			justify-content: flex-end;
+			padding: 24px;
+			background: linear-gradient(135deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+		}
+
+		.entertainment-item-title {
+			font-size: 20px;
+			line-height: 1.2;
+			font-weight: 600;
+			font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+			color: #fff;
+		}
+
+		/* ===== Ribbon Styles ===== */
+		@keyframes ribbon-drop {
+			0% {
+				transform: translateY(-100%);
+			}
+			100% {
+				transform: translateY(0);
+			}
+		}
+
+		.ribbon {
+			--ribbon-link-inline-color: inherit;
+			overflow: hidden;
+			font-size: 14px;
+			line-height: 1.4285914286;
+			font-weight: 400;
+			letter-spacing: -0.016em;
+			font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+			--ribbon-link-color: rgb(0, 102, 204);
+			--ribbon-focus-color: #0071e3;
+			--ribbon-text-color: rgb(29, 29, 31);
+			--ribbon-background-color: rgb(245, 245, 247);
+			--ribbon-content-padding-top: 16px;
+			--ribbon-content-padding-bottom: var(--ribbon-content-padding-top);
+			--ribbon-content-width: 83.33333%;
+			--ribbon-content-minimum-width: 320px;
+			width: var(--ribbon-width);
+			padding-top: var(--ribbon-padding-top);
+			padding-bottom: var(--ribbon-padding-bottom);
+		}
+
+		.ribbon-content-wrapper {
+			text-align: center;
+			background-color: var(--ribbon-background-color);
+			backdrop-filter: blur(var(--ribbon-background-blur));
+			padding-top: var(--ribbon-content-padding-top);
+			padding-bottom: var(--ribbon-content-padding-bottom);
+			border-radius: var(--ribbon-border-radius);
+		}
+
+		.ribbon-content {
+			margin-left: auto;
+			margin-right: auto;
+			width: var(--ribbon-content-width);
+			min-width: var(--ribbon-content-minimum-width);
+			color: var(--ribbon-text-color);
+		}
+
+		.ribbon-link {
+			white-space: nowrap;
+			color: var(--ribbon-link-color);
+		}
+
+		.ribbon-link:focus {
+			outline: 2px solid var(--ribbon-focus-color);
+			outline-offset: 1px;
+		}
+
+		.ribbon-link-inline, .ribbon-link-inline:link {
+			text-decoration: underline;
+		}
+
+		.ribbon-link-inline {
+			color: var(--ribbon-link-inline-color);
+		}
+
+		.theme-dark .ribbon {
+			--ribbon-text-color: rgb(245, 245, 247);
+			--ribbon-background-color: rgb(29, 29, 31);
+			--ribbon-link-color: rgb(41, 151, 255);
+		}
+
+		/* ===== Product-Specific Styles ===== */
+		.section-promo [data-tile-id=ipad-air-m4] .tile-headline {
+			height: 49px;
+		}
+
+		.section-promo [data-tile-id=apple-business] .tile-headline {
+			height: 49px;
+		}
+
+		.section-promo [data-tile-id=airpods-pro-3] .tile-subhead {
+			max-width: 250px;
+		}
+
+		.section-promo [data-tile-id=apple-business] .tile-subhead {
+			max-width: 350px;
+		}
+
+		/* ===== Responsive Design ===== */
+		@media (min-width: 1069px) {
+			.section-hero .button {
+				--sk-button-padding-horizontal: 22px;
+				--sk-button-padding-vertical: 12px;
+				font-size: 17px;
+				line-height: 1.1764805882;
+			}
+
+			.section-promo {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 12px;
+			}
+
+			.section-promo .tile-wrapper {
+				min-height: 480px;
+			}
+		}
+
+		@media (max-width: 1068px) {
+			.section {
+				grid-template-columns: 1fr;
+			}
+
+			.section-hero {
+				grid-template-columns: 1fr;
+			}
+
+			.section-hero .tile-wrapper:first-child {
+				grid-column: 1;
+				min-height: 570px;
+			}
+
+			.section-promo {
+				grid-template-columns: 1fr 1fr;
+			}
+
+			.tile-headline {
+				font-size: 40px;
+				line-height: 1.1;
+				letter-spacing: 0em;
+			}
+
+			.tile-subhead {
+				font-size: 24px;
+				line-height: 1.1666666667;
+				letter-spacing: .009em;
+			}
+
+			.section-promo .tile-headline {
+				font-size: 32px;
+				line-height: 1.125;
+				letter-spacing: .002em;
+			}
+
+			.section-promo .tile-subhead {
+				font-size: 19px;
+				line-height: 1.2105263158;
+				letter-spacing: .012em;
+			}
+
+			.media-gallery-headline {
+				font-size: 40px;
+				line-height: 1.1;
+			}
+		}
+
+		@media (max-width: 734px) {
+			main {
+				padding-top: 48px;
+			}
+
+			.section {
+				grid-template-columns: 1fr;
+				gap: 12px;
+				margin-bottom: 12px;
+			}
+
+			.section-hero {
+				grid-template-columns: 1fr;
+			}
+
+			.section-hero .tile-wrapper:first-child {
+				grid-column: 1;
+				min-height: 500px;
+			}
+
+			.section-promo {
+				grid-template-columns: 1fr;
+				padding: 0;
+			}
+
+			.tile-wrapper {
+				min-height: 400px;
+				padding: 39px 0 42px;
+			}
+
+			.tile-content {
+				padding: 20px;
+				width: 95%;
+				top: 20%;
+			}
+
+			.tile-headline {
+				font-size: 32px;
+				line-height: 1.125;
+				letter-spacing: .002em;
+			}
+
+			.tile-subhead {
+				font-size: 19px;
+				line-height: 1.2105263158;
+				letter-spacing: .012em;
+			}
+
+			.section-promo .tile-headline {
+				font-size: 28px;
+				line-height: 1.1428571429;
+			}
+
+			.section-promo .tile-subhead {
+				font-size: 17px;
+				line-height: 1.2353641176;
+			}
+
+			.tile-ctas {
+				column-gap: 12px;
+				margin-top: 11px;
+			}
+
+			.section-promo .tile-ctas {
+				column-gap: 12px;
+			}
+
+			.button {
+				font-size: 14px;
+				padding: calc(9px - 1px) calc(16px - 1px);
+			}
+
+			.entertainment-grid {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 12px;
+			}
+
+			.entertainment-item-content {
+				padding: 16px;
+			}
+
+			.entertainment-item-title {
+				font-size: 16px;
+			}
+
+			.media-gallery-headline {
+				font-size: 32px;
+				line-height: 1.125;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.tile-headline {
+				font-size: 32px;
+			}
+
+			.tile-subhead {
+				font-size: 16px;
+				margin-bottom: 16px;
+			}
+
+			.tile-ctas {
+				gap: 8px;
+			}
+
+			.button {
+				padding: 8px 16px;
+				font-size: 13px;
+			}
+
+			.media-gallery-headline {
+				font-size: 40px;
+			}
+
+			.entertainment-grid {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 12px;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.ribbon-content {
+				flex-direction: column;
+				gap: 8px;
+			}
+
+			.tile-headline {
+				font-size: 24px;
+			}
+
+			.tile-subhead {
+				font-size: 14px;
+			}
+
+			.media-gallery-headline {
+				font-size: 32px;
+			}
+
+			.entertainment-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.section-endless-entertainment-gallery {
+				padding: 60px 16px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Header -->
+	<header class="site-header">
+		<nav class="nav-bar">
+			<div class="nav-inner">
+				<a href="#" class="nav-logo">
+					<i class="fa-brands fa-apple"></i>
+				</a>
+				<button class="nav-hamburger" id="hamburger" aria-label="Meny">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<ul class="nav-links" id="nav-links">
+					<li class="nav-item has-dropdown">
+						<a href="#" class="nav-link">Store</a>
+						<div class="dropdown">
+							<div class="dropdown-inner">
+								<div class="dropdown-col">
+									<h3 class="dropdown-heading">Shop</h3>
+									<ul>
+										<li><a href="#" class="dropdown-link">Mac</a></li>
+										<li><a href="#" class="dropdown-link">iPad</a></li>
+										<li><a href="#" class="dropdown-link">iPhone</a></li>
+									</ul>
+								</div>
+								<div class="dropdown-col">
+									<h3 class="dropdown-heading">Accessories</h3>
+									<ul>
+										<li><a href="#" class="dropdown-link">Cases</a></li>
+										<li><a href="#" class="dropdown-link">Chargers</a></li>
+									</ul>
+								</div>
+								<div class="dropdown-col">
+									<h3 class="dropdown-heading">Support</h3>
+									<ul>
+										<li><a href="#" class="dropdown-link">AppleCare+</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="nav-item"><a href="#" class="nav-link">Mac</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">iPad</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">iPhone</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">Watch</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">Vision</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">AirPods</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">TV & Home</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">Entertainment</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">Accessories</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">Support</a></li>
+				</ul>
+				<div class="nav-icons">
+					<a href="#" class="nav-icon-link" aria-label="Sök">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</a>
+					<a href="#" class="nav-icon-link" aria-label="Handla">
+						<i class="fa-solid fa-bag-shopping"></i>
+					</a>
+				</div>
+			</div>
+		</nav>
+		<button class="nav-close" id="close-btn" aria-label="Stäng meny">
+			<i class="fa-solid fa-xmark"></i>
+		</button>
+	</header>
+
+	<!-- Main Content -->
+	<main class="main" role="main">
+		<!-- Ribbon Section -->
+		<section class="section-ribbon" data-analytics-region="ribbon">
+			<div class="ribbon ribbon-animate-color ribbon-blue-to-default" data-unit-id="earth-day-2026-ribbon" data-analytics-activitymap-region-id="earth day 2026 ribbon">
+				<div class="ribbon-content-wrapper">
+					<div class="ribbon-content">
+						<span>Recycle an eligible device in a store and get 10% off an Apple accessory.<sup class="footnote footnote-number"><a href="#footnote-1" aria-label="Footnote 1">1</a></sup></span>
+						<a class="ribbon-link more" href="/retail/" data-analytics-region="learn more" data-analytics-title="find a store">Find a store</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Hero Section -->
+		<section class="section section-hero" data-analytics-region="hero">
+			<div class="tile-wrapper" data-tile-id="iphone-16">
+				<a class="tile-link" href="/iphone-16/" data-analytics-region="learn more" aria-hidden="true" tabindex="-1"></a>
+				<div class="tile-content">
+					<div class="tile-copy-wrapper">
+						<h2 class="tile-headline">iPhone 16</h2>
+						<p class="tile-subhead">The ultimate pocket-sized companion.</p>
+					</div>
+					<div class="tile-ctas">
+						<a class="button" href="/iphone-16/">Learn more</a>
+						<a class="button button-secondary" href="/us/shop/goto/buy_iphone/iphone_16">Buy</a>
+					</div>
+				</div>
+				<div class="tile-image-wrapper">
+					<picture><img src="Images/hero_iphone_family__fuz5j2v5xx6y_largetall_2x.jpg" alt="iPhone"></picture>
+				</div>
+			</div>
+		</section>
+
+		<!-- Apple Watch Hero Section -->
+		<section class="section section-hero" data-analytics-region="hero">
+			<div class="tile-wrapper" data-tile-id="apple-watch-series-11">
+				<a class="tile-link" href="/apple-watch-series-11/" data-analytics-region="learn more" aria-hidden="true" tabindex="-1"></a>
+				<div class="tile-content">
+					<div class="tile-copy-wrapper">
+						<h2 class="tile-headline">Apple Watch Series 11</h2>
+						<p class="tile-subhead">The ultimate way to watch your health.</p>
+					</div>
+					<div class="tile-ctas">
+						<a class="button" href="/apple-watch-series-11/">Learn more</a>
+						<a class="button button-secondary" href="/us/shop/goto/buy_watch/apple_watch_series_11">Buy</a>
+					</div>
+				</div>
+				<div class="tile-image-wrapper">
+					<picture><img src="Images/hero_apple_watch_series_11__bdz1mml4dx6q_largetall_2x.jpg" alt="Apple Watch"></picture>
+				</div>
+			</div>
+		</section>
+
+		<!-- MacBook Neo Hero Section -->
+		<section class="section section-hero" data-analytics-region="hero">
+			<div class="tile-wrapper" data-tile-id="macbook-neo">
+				<a class="tile-link" href="/macbook-neo/" data-analytics-region="learn more" aria-hidden="true" tabindex="-1"></a>
+				<div class="tile-content">
+					<div class="tile-copy-wrapper">
+						<h2 class="tile-headline">MacBook Neo</h2>
+						<p class="tile-subhead">Amazing Mac. Surprising price.</p>
+					</div>
+					<div class="tile-ctas">
+						<a class="button" href="/macbook-neo/">Learn more</a>
+						<a class="button button-secondary" href="/us/shop/goto/buy_mac/macbook_neo">Buy</a>
+					</div>
+				</div>
+				<div class="tile-image-wrapper">
+					<picture><img src="Images/hero_macbook_neo__gnm3snkti4a6_largetall_2x.jpg" alt="MacBook Neo"></picture>
+				</div>
+			</div>
+		</section>
+
+		<!-- Promo Section -->
+		<section class="section section-promo" data-analytics-region="promo">
+			<div class="tile-wrapper" data-tile-id="ipad-air-m4">
+				<a class="tile-link" href="/ipad-air/" data-analytics-region="learn more" aria-hidden="true" tabindex="-1"></a>
+				<div class="tile-content">
+					<div class="tile-copy-wrapper">
+						<h3 class="tile-headline">iPad Air</h3>
+						<p class="tile-subhead">Now supercharged by M4.</p>
+					</div>
+					<div class="tile-ctas">
+						<a class="button" href="/ipad-air/">Learn more</a>
+						<a class="button button-secondary" href="/us/shop/goto/buy_ipad/ipad_air">Buy</a>
+					</div>
+				</div>
+				<div class="tile-image-wrapper">
+					<picture><img src="Images/promo_ipad_air_m4__f9ie3h3pzr6m_large_2x.jpg" alt="iPad Air"></picture>
+				</div>
+			</div>
+
+			<div class="tile-wrapper theme-dark" data-tile-id="macbook-pro">
+				<a class="tile-link" href="/macbook-pro/" data-analytics-region="learn more" aria-hidden="true" tabindex="-1"></a>
+				<div class="tile-content">
+					<div class="tile-copy-wrapper">
+						<h3 class="tile-headline">MacBook Pro</h3>
+						<p class="tile-subhead">Now with M5, M5 Pro, and M5 Max.</p>
+					</div>
+					<div class="tile-ctas">
+						<a class="button" href="/macbook-pro/">Learn more</a>
+						<a class="button button-secondary" href="/us/shop/goto/buy_mac/macbook_pro">Buy</a>
+					</div>
+				</div>
+				<div class="tile-image-wrapper">
+					<picture><img src="Images/promo_macbook_pro__e3xqrygvp9ea_large_2x.jpg" alt="MacBook Pro"></picture>
+				</div>
+			</div>
+
+			<div class="tile-wrapper" data-tile-id="airpods-pro-3">
+				<a class="tile-link" href="/airpods-pro/" data-analytics-region="learn more" aria-hidden="true" tabindex="-1"></a>
+				<div class="tile-content">
+					<div class="tile-copy-wrapper">
+						<h3 class="tile-headline">AirPods Pro 3</h3>
+						<p class="tile-subhead">The world's best in-ear Active Noise Cancellation.</p>
+					</div>
+					<div class="tile-ctas">
+						<a class="button" href="/airpods-pro/">Learn more</a>
+						<a class="button button-secondary" href="/us/shop/goto/buy_airpods/airpods_pro_3">Buy</a>
+					</div>
+				</div>
+				<div class="tile-image-wrapper">
+					<picture><img src="Images/promo_airpodspro_3__f6xmza7bglei_large_2x.jpg" alt="AirPods Pro 3"></picture>
+				</div>
+			</div>
+
+			<div class="tile-wrapper" data-tile-id="apple-business">
+				<a class="tile-link" href="https://business.apple.com/" data-analytics-region="learn more" aria-hidden="true" tabindex="-1"></a>
+				<div class="tile-content">
+					<div class="tile-copy-wrapper">
+						<h3 class="tile-headline">Apple Business</h3>
+						<p class="tile-subhead">The tools you need to run and grow your business.</p>
+					</div>
+					<div class="tile-ctas">
+						<a class="button" href="https://business.apple.com/">Learn more</a>
+					</div>
+				</div>
+				<div class="tile-image-wrapper">
+					<picture><img src="Images/promo_apple_business__fi88n3dz0emq_large_2x.jpg" alt="Apple Business"></picture>
+				</div>
+			</div>
+		</section>
+
+		<!-- Entertainment Gallery Section -->
+		<section class="section-endless-entertainment-gallery" data-analytics-region="endless-entertainment-gallery">
+			<div class="media-gallery-headline-container">
+				<h2 class="media-gallery-headline">Endless entertainment.</h2>
+			</div>
+			<div class="entertainment-grid">
+				<a href="/apple-tv-plus/" class="entertainment-item" style="background: linear-gradient(135deg, #FF3C21 0%, #FF5E3A 100%);">
+					<div class="entertainment-item-content">
+						<div class="entertainment-item-title">TV+</div>
+					</div>
+				</a>
+				<a href="/apple-arcade/" class="entertainment-item" style="background: linear-gradient(135deg, #A2845E 0%, #C4A573 100%);">
+					<div class="entertainment-item-content">
+						<div class="entertainment-item-title">Arcade</div>
+					</div>
+				</a>
+				<a href="/apple-music/" class="entertainment-item" style="background: linear-gradient(135deg, #FA243C 0%, #FA243C 100%);">
+					<div class="entertainment-item-content">
+						<div class="entertainment-item-title">Music</div>
+					</div>
+				</a>
+				<a href="/apple-fitness-plus/" class="entertainment-item" style="background: linear-gradient(135deg, #06A84F 0%, #08D965 100%);">
+					<div class="entertainment-item-content">
+						<div class="entertainment-item-title">Fitness+</div>
+					</div>
+				</a>
+			</div>
+		</section>
+	</main>
+
+	<script>
+		const hamburger = document.getElementById('hamburger');
+		const navLinks = document.getElementById('nav-links');
+		const closeBtn = document.getElementById('close-btn');
+
+		hamburger.addEventListener('click', () => {
+			navLinks.classList.add('open');
+			hamburger.classList.add('active');
+		});
+
+		closeBtn.addEventListener('click', () => {
+			navLinks.classList.remove('open');
+			hamburger.classList.remove('active');
+		});
+
+		document.addEventListener('click', (e) => {
+			if (!e.target.closest('.nav-inner') && !e.target.closest('.nav-hamburger') && !e.target.closest('.nav-close')) {
+				navLinks.classList.remove('open');
+				hamburger.classList.remove('active');
+			}
+		});
+	</script>
+</body>
+</html>

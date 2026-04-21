@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apple – Header</title>
+
+  <!-- FontAwesome ikonset (krav för VG) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Extern CSS-fil -->
+  <link rel="stylesheet" href="header.css" />
+</head>
+<body>
+
+  <!-- =============================================
+       HEADER / NAVIGERING
+  ============================================= -->
+  <header class="site-header">
+    <nav class="nav-bar" aria-label="Huvudnavigation">
+
+      <div class="nav-inner">
+
+        <!-- Apple-logotyp -->
+        <a href="#" class="nav-logo" aria-label="Apple startsida">
+          <i class="fa-brands fa-apple"></i>
+        </a>
+
+        <!-- Hamburger-knapp (mobil) -->
+        <button class="nav-hamburger" aria-label="Öppna meny" aria-expanded="false" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Navigeringslänkar -->
+        <ul class="nav-links" id="nav-links">
+
+          <!-- Store – med dropdown -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Store</a>
+
+            <div class="dropdown">
+              <div class="dropdown-inner">
+
+                <!-- Kolumn 1: Shop -->
+                <div class="dropdown-col">
+                  <p class="dropdown-heading">Shop</p>
+                  <ul>
+                    <li><a class="dropdown-link large" href="#">Shop the Latest</a></li>
+                    <li><a class="dropdown-link large" href="#">Mac</a></li>
+                    <li><a class="dropdown-link large" href="#">iPad</a></li>
+                    <li><a class="dropdown-link large" href="#">iPhone</a></li>
+                    <li><a class="dropdown-link large" href="#">Apple Watch</a></li>
+                    <li><a class="dropdown-link large" href="#">Apple Vision Pro</a></li>
+                    <li><a class="dropdown-link large" href="#">AirPods</a></li>
+                    <li><a class="dropdown-link large" href="#">Accessories</a></li>
+                  </ul>
+                </div>
+
+                <!-- Kolumn 2: Quick Links -->
+                <div class="dropdown-col">
+                  <p class="dropdown-heading">Quick Links</p>
+                  <ul>
+                    <li><a class="dropdown-link" href="#">Find a Store</a></li>
+                    <li><a class="dropdown-link" href="#">Order Status</a></li>
+                    <li><a class="dropdown-link" href="#">Apple Trade In</a></li>
+                    <li><a class="dropdown-link" href="#">Financing</a></li>
+                    <li><a class="dropdown-link" href="#">Personal Setup</a></li>
+                  </ul>
+                </div>
+
+                <!-- Kolumn 3: Special Stores -->
+                <div class="dropdown-col">
+                  <p class="dropdown-heading">Shop Special Stores</p>
+                  <ul>
+                    <li><a class="dropdown-link" href="#">Certified Refurbished</a></li>
+                    <li><a class="dropdown-link" href="#">Education</a></li>
+                    <li><a class="dropdown-link" href="#">Business</a></li>
+                    <li><a class="dropdown-link" href="#">Veterans and Military</a></li>
+                    <li><a class="dropdown-link" href="#">Government</a></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </li>
+
+          <!-- Mac -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Mac</a>
+            <div class="dropdown">
+              <div class="dropdown-inner">
+                <div class="dropdown-col">
+                  <p class="dropdown-heading">Utforska Mac</p>
+                  <ul>
+                    <li><a class="dropdown-link large" href="#">MacBook Air</a></li>
+                    <li><a class="dropdown-link large" href="#">MacBook Pro</a></li>
+                    <li><a class="dropdown-link large" href="#">iMac</a></li>
+                    <li><a class="dropdown-link large" href="#">Mac mini</a></li>
+                    <li><a class="dropdown-link large" href="#">Mac Pro</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown-col">
+                  <p class="dropdown-heading">Quick Links</p>
+                  <ul>
+                    <li><a class="dropdown-link" href="#">Jämför</a></li>
+                    <li><a class="dropdown-link" href="#">macOS</a></li>
+                    <li><a class="dropdown-link" href="#">Apple Trade In</a></li>
+                    <li><a class="dropdown-link" href="#">Finansiering</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- iPad -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">iPad</a>
+            <div class="dropdown">
+              <div class="dropdown-inner">
+                <div class="dropdown-col">
+                  <p class="dropdown-heading">Utforska iPad</p>
+                  <ul>
+                    <li><a class="dropdown-link large" href="#">iPad Pro</a></li>
+                    <li><a class="dropdown-link large" href="#">iPad Air</a></li>
+                    <li><a class="dropdown-link large" href="#">iPad mini</a></li>
+                    <li><a class="dropdown-link large" href="#">iPad</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown-col">
+                  <p class="dropdown-heading">Tillbehör</p>
+                  <ul>
+                    <li><a class="dropdown-link" href="#">Apple Pencil</a></li>
+                    <li><a class="dropdown-link" href="#">Tangentbord</a></li>
+                    <li><a class="dropdown-link" href="#">Fodral</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- iPhone -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">iPhone</a>
+            <div class="dropdown">
+              <div class="dropdown-inner">
+                <div class="dropdown-col">
+                  <p class="dropdown-heading">Utforska iPhone</p>
+                  <ul>
+                    <li><a class="dropdown-link large" href="#">iPhone 16 Pro</a></li>
+                    <li><a class="dropdown-link large" href="#">iPhone 16</a></li>
+                    <li><a class="dropdown-link large" href="#">iPhone 15</a></li>
+                    <li><a class="dropdown-link large" href="#">Jämför</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown-col">
+                  <p class="dropdown-heading">Quick Links</p>
+                  <ul>
+                    <li><a class="dropdown-link" href="#">Apple Trade In</a></li>
+                    <li><a class="dropdown-link" href="#">Finansiering</a></li>
+                    <li><a class="dropdown-link" href="#">iPhone Tillbehör</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Watch -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Watch</a>
+            <div class="dropdown">
+              <div class="dropdown-inner">
+                <div class="dropdown-col">
+                  <p class="dropdown-heading">Utforska Watch</p>
+                  <ul>
+                    <li><a class="dropdown-link large" href="#">Apple Watch Series 11</a></li>
+                    <li><a class="dropdown-link large" href="#">Apple Watch Ultra 2</a></li>
+                    <li><a class="dropdown-link large" href="#">Apple Watch SE</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Vision -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">Vision</a>
+          </li>
+
+          <!-- AirPods -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">AirPods</a>
+            <div class="dropdown">
+              <div class="dropdown-inner">
+                <div class="dropdown-col">
+                  <p class="dropdown-heading">Utforska AirPods</p>
+                  <ul>
+                    <li><a class="dropdown-link large" href="#">AirPods 4</a></li>
+                    <li><a class="dropdown-link large" href="#">AirPods Pro 2</a></li>
+                    <li><a class="dropdown-link large" href="#">AirPods Max</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- TV & Home -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">TV &amp; Home</a>
+          </li>
+
+          <!-- Entertainment -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">Entertainment</a>
+          </li>
+
+          <!-- Accessories -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">Accessories</a>
+          </li>
+
+          <!-- Support -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">Support</a>
+          </li>
+
+        </ul>
+
+        <!-- Ikoner: sök + varukorg -->
+        <div class="nav-icons">
+          <a href="#" class="nav-icon-link" aria-label="Sök">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+          <a href="#" class="nav-icon-link" aria-label="Varukorg">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </a>
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- Close-knapp i meny (mobil) - UTANFÖR nav-bar -->
+    <button class="nav-close" aria-label="Stäng meny" id="close-btn">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </header>
+
+  <!-- JavaScript för hamburger (mobil) -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const closeBtn = document.getElementById('close-btn');
+    const navLinks = document.getElementById('nav-links');
+    const navItems = document.querySelectorAll('.nav-link');
+
+    // Öppna meny
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.add('open');
+      hamburger.classList.add('active');
+      hamburger.setAttribute('aria-expanded', 'true');
+    });
+
+    // Stäng meny
+    closeBtn.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+
+    // Stäng meny när man klickar på en länk
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Stäng meny när man klickar utanför
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-bar') && !e.target.closest('.nav-links') && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+
+</body>
+</html>
