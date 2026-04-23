@@ -1,0 +1,396 @@
+/* ===== CSS Variables & Theme System ===== */
+:root {
+    --sk-glyph: rgb(0, 0, 0);
+    --sk-glyph-gray: rgb(29, 29, 31);
+    --sk-glyph-gray-secondary: rgb(110, 110, 115);
+    --sk-glyph-blue: rgb(0, 102, 204);
+    --sk-fill: rgb(255, 255, 255);
+    --sk-fill-tertiary: #f5f5f7;
+    --sk-fill-gray: rgb(29, 29, 31);
+    --sk-fill-blue: rgb(0, 113, 227);
+    --sk-body-text-color: rgb(29, 29, 31);
+    --sk-headline-text-color: rgb(29, 29, 31);
+    --sk-body-background-color: #fff;
+    --sk-body-link-color: rgb(0, 102, 204);
+    --sk-focus-color: #0071e3;
+    --sk-button-background: rgb(0, 113, 227);
+    --sk-button-background-hover: #0076DF;
+    --sk-button-background-active: #006EDB;
+}
+
+/* ===== Reset ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 106.25%; }
+body {
+    font-family: "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: var(--sk-body-background-color);
+    color: var(--sk-body-text-color);
+    font-size: 17px;
+    line-height: 1.4705882353;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    -webkit-font-smoothing: antialiased;
+}
+main { padding-top: 44px; max-width: 2560px; margin: 0 auto; background-color: #fff; }
+
+/* ===== Section Layout ===== */
+.section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    text-align: center;
+    margin-bottom: 12px;
+    background-color: #fff;
+    padding: 0 12px;
+}
+.section-hero {
+    grid-template-columns: 1fr;
+    margin: 0 0 12px 0;
+    padding: 0;
+}
+.section-hero .tile-wrapper {
+    grid-column: 1 / -1;
+    min-height: 692px;
+    background-color: #f5f5f7;
+    border-radius: 0;
+}
+.tile-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: #f5f5f7;
+    overflow: hidden;
+    padding: 0;
+    min-height: 580px;
+}
+.tile-link {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    text-decoration: none;
+}
+
+/* ===== Typografi ===== */
+.tile-content {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+.tile-copy-wrapper { margin-bottom: 24px; }
+.tile-headline {
+    font-size: 56px;
+    line-height: 1.0714285714;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #1d1d1f;
+    margin: 0 0 8px 0;
+}
+.tile-subhead {
+    font-size: 28px;
+    line-height: 1.1428571429;
+    font-weight: 400;
+    letter-spacing: -0.016em;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #1d1d1f;
+    margin: 0;
+}
+
+/* ===== Knappar – enhetliga ===== */
+.button, .button-elevated {
+    font-size: 17px;
+    line-height: 1.17648;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: rgb(0, 113, 227);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 980px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+.section-hero .button, .section-hero .button-elevated {
+    padding: 11px 22px;
+    font-size: 17px;
+}
+.section-promo .button, .section-promo .button-elevated {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+.button-secondary {
+    background: transparent;
+    color: rgb(0, 102, 204);
+    border: 1px solid rgb(0, 102, 204);
+}
+.button-secondary:hover {
+    background: rgb(0, 102, 204);
+    color: #fff;
+}
+.button:hover, .button-elevated:hover {
+    background: #0076DF;
+    text-decoration: none;
+}
+
+/* ===== Hero Image ===== */
+.tile-image-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+.tile-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* ===== Promo Section ===== */
+.section-promo {
+    max-width: 2560px;
+    margin: 0 0 12px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 12px;
+    background-color: #fff;
+}
+.section-promo .tile-wrapper {
+    min-height: 580px;
+    border-radius: 0;
+    overflow: hidden;
+    background-color: #f5f5f7;
+}
+.section-promo .tile-content { top: 48px; }
+.section-promo .tile-headline { font-size: 40px; line-height: 1.1; font-weight: 700; letter-spacing: -0.003em; }
+.section-promo .tile-subhead { font-size: 21px; line-height: 1.2; font-weight: 500; letter-spacing: -0.016em; margin-top: 12px; }
+.tile-logo img { height: 40px; width: auto; }
+.section-promo .tile-ctas { display: flex; justify-content: center; gap: 16px; margin-top: 32px; }
+
+/* ===== COMMUNITY LETTER – STOR APPLE-LOGGA (dubbelt så stor) ===== */
+[data-tile-id="community-letter"] {
+    background-color: #f5f5f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+[data-tile-id="community-letter"] .tile-content {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+}
+[data-tile-id="community-letter"] .tile-headline.logo-image {
+    margin-bottom: 24px;
+}
+[data-tile-id="community-letter"] .tile-headline.logo-image img {
+    width: 100%;
+    max-width: 560px;   /* DUBBELT SÅ STOR (var 280px) */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+[data-tile-id="community-letter"] p.tile-headline {
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+/* ===== Endless Entertainment ===== */
+.section-endless-entertainment-gallery {
+    background-color: #f5f5f7;
+    padding: 53px 0 0;
+    margin-top: 12px;
+}
+.media-gallery-headline-container {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+}
+.media-gallery-headline {
+    font-size: 56px;
+    line-height: 1.0714285714;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+}
+.entertainment-slider-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 40px;
+    margin-bottom: 40px;
+}
+.entertainment-large-card {
+    flex: 0 0 80%;
+    max-width: 980px;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+.entertainment-large-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.entertainment-large-card-info {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+}
+.entertainment-btn-white {
+    background: #fff;
+    color: #1d1d1f;
+    padding: 8px 18px;
+    border-radius: 980px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+.entertainment-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: #fff;
+}
+.entertainment-card-category { font-weight: 600; font-size: 17px; }
+.entertainment-card-desc { font-size: 15px; opacity: 0.8; }
+
+/* Punktnavigation */
+.media-gallery-dotnav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+.dotnav-items {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+}
+.dotnav-link {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 50%;
+}
+.dotnav-item.current .dotnav-link {
+    background-color: rgba(0,0,0,0.8);
+    transform: scale(1.2);
+}
+.visuallyhidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+/* Små kort – horisontell scroll */
+.entertainment-small-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding: 40px 40px 60px;
+    scrollbar-width: thin;
+}
+.entertainment-small-item {
+    flex: 0 0 280px;
+    aspect-ratio: 16/10;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.entertainment-small-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.entertainment-small-logo {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    padding: 4px 10px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 12px;
+    z-index: 2;
+}
+.entertainment-small-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    z-index: 2;
+}
+.entertainment-small-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+}
+.entertainment-small-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+.entertainment-small-desc {
+    font-size: 13px;
+    color: #fff;
+    opacity: 0.8;
+}
+.entertainment-small-btn {
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    padding: 6px 14px;
+    border-radius: 980px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* ===== Responsivt ===== */
+@media (max-width: 1068px) {
+    .tile-headline { font-size: 48px; }
+    .tile-subhead { font-size: 24px; }
+    .section-promo .tile-headline { font-size: 32px; }
+    .section-promo .tile-subhead { font-size: 19px; }
+    .media-gallery-headline { font-size: 48px; }
+}
+@media (max-width: 734px) {
+    .section, .section-promo { grid-template-columns: 1fr; padding: 0 12px; }
+    .tile-headline { font-size: 32px; }
+    .tile-subhead { font-size: 19px; }
+    .section-promo .tile-headline { font-size: 28px; }
+    .section-promo .tile-subhead { font-size: 17px; }
+    .entertainment-large-card { flex: 0 0 90%; }
+    .entertainment-small-item { flex: 0 0 240px; }
+    [data-tile-id="community-letter"] .tile-headline.logo-image img { max-width: 400px; } /* fortfarande stor på mobil */
+}
+@media (max-width: 480px) {
+    .tile-headline { font-size: 28px; }
+    .entertainment-small-item { flex: 0 0 200px; }
+    [data-tile-id="community-letter"] .tile-headline.logo-image img { max-width: 280px; }
+}

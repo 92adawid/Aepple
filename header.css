@@ -120,19 +120,22 @@ body {
   flex-direction: column;
   justify-content: space-between;
   width: 18px;
-  height: 13px;
+  height: 11px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
+  position: relative;
 }
 
 .nav-hamburger span {
   display: block;
+  width: 18px;
   height: 1.5px;
   background: #1d1d1f;
   border-radius: 2px;
-  transition: transform 0.25s, opacity 0.25s;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
 }
 
 /* =============================================
@@ -253,18 +256,16 @@ body {
 
   .nav-hamburger {
     display: flex;
+    margin-left: auto;
+    z-index: 300;
   }
 
   .nav-hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+    transform: rotate(45deg) translate(6px, 6px);
   }
 
   .nav-hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .nav-hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: rotate(-45deg) translate(5px, -5px);
   }
 
   .nav-item {
