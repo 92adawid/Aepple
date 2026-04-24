@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Support - Exakta Mått</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="header.css">
+    
+    <style>
+        /* --- TILLÄGG FÖR ATT INTEGRERA NYA HEADERN UTAN ATT DEN SKROLLAR MED --- */
+        .site-header {
+            position: absolute !important; /* Gör att den stannar längst upp */
+            text-align: left;
+            padding: 0;
+        }
+
+        .site-header img {
+            width: auto;
+            height: auto;
+            margin-bottom: 0;
+        }
+
+        /* Justerar din hjälphjälte-header så den hamnar under navbaren */
+        header:not(.site-header) {
+            padding: 104px 0 40px; 
+        }
+
+        /* --- DIN BEFINTLIGA KOD NEDAN --- */
+        :root {
+            --bg-gray: #f5f5f7;
+            --text-main: #1d1d1f;
+            --link-blue: #0066cc;
+            --border-color: #d2d2d7;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            color: var(--text-main);
+            line-height: 1.47059;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--link-blue);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+
+        header {
+            text-align: center;
+            padding: 104px 0 40px;
+        }
+
+        .hero-logo {
+            width: 159px;
+            height: 159px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+            line-height: 1.07143;
+            margin: 0;
+        }
+
+        .intro-text {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: .009em;
+            margin-top: 12px;
+        }
+
+        .product-grid {
+            display: flex; 
+            justify-content: space-between;
+            margin: 54px 0 85px 0;
+            text-align: center;
+        }
+
+        .product-item {
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+            transition: opacity 0.3s;
+        }
+
+        .product-item:hover { opacity: 0.8; text-decoration: none; }
+
+        .product-item img {
+            height: 68px;
+            margin-bottom: 12px;
+            object-fit: contain;
+        }
+
+        .product-item span {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.28571;
+        }
+
+        .tiles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .tile {
+            background-color: var(--bg-gray);
+            border-radius: 18px;
+            height: 164px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0, 0, .5, 1);
+            box-sizing: border-box;
+        }
+
+        .tile:hover { transform: scale(1.02); text-decoration: none; }
+
+        .tile img {
+            height: 44px; 
+            width: 44px;
+            margin-bottom: 15px;
+        }
+
+        .tile p {
+            font-size: 17px; 
+            font-weight: 400;
+            margin: 0;
+            color: var(--link-blue);
+            line-height: 1.23536;
+        }
+
+        .search-section {
+            text-align: center;
+            margin: 60px 0 100px;
+        }
+
+        .search-section h2 {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--text-main);
+            letter-spacing: 0em;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            height: 56px;
+            padding: 0 20px 0 52px; 
+            font-size: 19px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px; 
+            outline: none;
+            box-sizing: border-box;
+            background: #fff;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #86868b;
+            font-size: 18px;
+        }
+
+        .bento-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .bento-card {
+            display: flex;
+            background-color: var(--bg-gray);
+            border-radius: 28px; 
+            overflow: hidden;
+            min-height: 470px;
+        }
+
+        .bento-img, .bento-text {
+            flex: 1; 
+        }
+
+        .bento-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bento-text {
+            padding: 60px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .bento-text h2 {
+            font-size: 40px; 
+            font-weight: 600;
+            letter-spacing: 0em;
+            margin: 0 0 15px 0;
+            line-height: 1.1;
+        }
+
+        .bento-text p {
+            font-size: 17px;
+            line-height: 1.47059;
+            margin: 0 0 20px 0;
+        }
+        
+        .bento-text a {
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .explore-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .explore-section h2 {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .explore-grid {
+            display: flex;
+            gap: 30px;
+        }
+
+        .explore-card {
+            flex: 1;
+            text-align: center;
+        }
+
+        .explore-card img {
+            width: 100%;
+            max-width: 343px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+        }
+
+        .explore-card h3 {
+            font-size: 21px;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            color: var(--text-main);
+        }
+        
+        .explore-card p, .explore-card a {
+            font-size: 17px;
+            margin: 0 0 10px 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .info-card {
+            background-color: var(--bg-gray);
+            border-radius: 28px;
+            padding: 50px 40px;
+            text-align: left;
+        }
+
+        .info-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+        }
+
+        .info-card p, .info-card a {
+            font-size: 17px;
+            margin: 0 0 15px 0;
+        }
+
+        .giftcard-icon {
+            height: 44px;
+            margin-bottom: 20px;
+        }
+
+        .span-3 { grid-column: span 3; text-align: center; } 
+        .span-2 { grid-column: span 2; } 
+        .span-1 { grid-column: span 1; } 
+
+        .service-programs {
+            border-top: 1px solid var(--border-color);
+            padding: 60px 0;
+            margin-bottom: 20px;
+        }
+
+        .service-programs h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0 0 25px 0;
+        }
+
+        .service-programs li {
+            margin-bottom: 14px;
+        }
+
+        .service-programs a {
+            font-size: 17px;
+        }
+
+        footer {
+            background-color: var(--bg-gray);
+            padding: 0 0 40px 0;
+            font-size: 12px;
+            color: #6e6e73;
+        }
+
+        .footer-breadcrumbs {
+            padding: 17px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+            color: var(--text-main);
+            font-size: 12px;
+        }
+
+        .footer-breadcrumbs i.fa-apple {
+            font-size: 14px;
+        }
+
+        .footer-breadcrumbs i.fa-angle-right {
+            font-size: 10px;
+            margin: 0 10px;
+            color: #86868b;
+        }
+
+        .footer-directory {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding-bottom: 20px;
+        }
+
+        .footer-column h3 {
+            font-size: 12px;
+            color: var(--text-main);
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        .footer-column li {
+            margin-bottom: 6px;
+        }
+
+        .footer-column a {
+            color: #424245; 
+        }
+        
+        .footer-legal {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-legal-links a {
+            color: #424245;
+            margin-right: 15px;
+            border-right: 1px solid var(--border-color);
+            padding-right: 15px;
+        }
+
+        .footer-legal-links a:last-child {
+            border-right: none;
+        }
+
+        .footer-locale {
+            color: #424245;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 40px; }
+            .product-grid { 
+                gap: 20px; 
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 20px;
+            }
+            .tiles-grid { grid-template-columns: 1fr; }
+            .tile { height: auto; padding: 40px 20px; }
+            
+            .bento-card { flex-direction: column; }
+            .bento-text { padding: 40px 20px; }
+            .explore-grid { flex-direction: column; align-items: center;}
+            
+            .info-grid { grid-template-columns: 1fr; }
+            .span-3, .span-2, .span-1 { grid-column: span 1; text-align: left; } 
+            .footer-directory { grid-template-columns: repeat(2, 1fr); } 
+            .footer-legal { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="nav-bar" aria-label="Huvudnavigation">
+          <div class="nav-inner">
+            <a href="#" class="nav-logo" aria-label="Apple startsida">
+              <i class="fa-brands fa-apple"></i>
+            </a>
+            <button class="nav-hamburger" aria-label="Öppna meny" aria-expanded="false" id="hamburger">
+              <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+              <li class="nav-item"><a href="#" class="nav-link">Store</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Mac</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">iPad</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">iPhone</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Watch</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Vision</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">AirPods</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Support</a></li>
+            </ul>
+            <div class="nav-icons">
+              <a href="#" class="nav-icon-link"><i class="fa-solid fa-magnifying-glass"></i></a>
+              <a href="#" class="nav-icon-link"><i class="fa-solid fa-bag-shopping"></i></a>
+            </div>
+          </div>
+        </nav>
+        <button class="nav-close" aria-label="Stäng meny" id="close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </header>
+    <header>
+        <div class="container">
+            <img src="supportImages/support-home-apple-logo-circle-blue.png" alt="Logo" class="hero-logo">
+            <h1>Apple Support</h1>
+            <p class="intro-text">Need help? Start here.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="product-grid">
+            <a href="#" class="product-item">
+                <img src="supportImages/image-grid-iphone-nav_2x.png" alt="iPhone">
+                <span>iPhone</span>
+            </a>
+            <a href="#" class="product-item">
+                <img src="supportImages/image-grid-mac-nav_2x.png" alt="Mac">
+                <span>Mac</span>
+            </a>
+            <a href="#" class="product-item">
+                <img src="supportImages/image-grid-ipad-tn_2x.png" alt="iPad">
+                <span>iPad</span>
+            </a>
+            <a href="#" class="product-item">
+                <img src="supportImages/image-grid-watch_2x.png" alt="Watch">
+                <span>Watch</span>
+            </a>
+            <a href="#" class="product-item">
+                <img src="supportImages/image-grid-apple-vision-pro_2x.png" alt="Vision">
+                <span>Vision</span>
+            </a>
+            <a href="#" class="product-item">
+                <img src="supportImages/image-grid-airpods_2x.png" alt="AirPods">
+                <span>AirPods</span>
+            </a>
+            <a href="#" class="product-item">
+                <img src="supportImages/image-grid-billing-subscriptions-nav_2x.png" alt="Billing">
+                <span>Billing</span>
+            </a>
+        </section>
+
+        <section class="tiles-grid">
+            <a href="#" class="tile">
+                <img src="supportImages/icon-apple-account-password-open.svg" alt="Password">
+                <p>Reset Apple Account password</p>
+            </a>
+            <a href="#" class="tile">
+                <img src="supportImages/icon-receipt-purchase-history.svg" alt="History">
+                <p>View your purchase history</p>
+            </a>
+            <a href="#" class="tile">
+                <img src="supportImages/icon-calendar-subscription.svg" alt="Subscription">
+                <p>Change a subscription</p>
+            </a>
+        </section>
+
+        <section class="search-section">
+            <h2>Search for More Topics</h2>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search Support">
+            </div>
+        </section>
+
+        <section class="bento-grid">
+            <div class="bento-card">
+                <div class="bento-img">
+                    <img src="supportImages/tile-side-applecare.image.large_2x.png" alt="AppleCare">
+                </div>
+                <div class="bento-text">
+                    <h2>Handled with<br>AppleCare</h2>
+                    <p>Every AppleCare plan provides one-stop service for your Apple products, with quick and easy repairs for accidents like drops and spills. You're also covered if your iPhone, iPad, or Apple Watch is lost or stolen.</p>
+                    <a href="#">Learn more <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+
+            <div class="bento-card">
+                <div class="bento-text">
+                    <h2>Apple Repair and<br>Service</h2>
+                    <p>We can help you find an Apple-certified repair, performed by trusted experts who use genuine Apple parts.</p>
+                    <a href="#">Start a repair <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+                <div class="bento-img">
+                    <img src="supportImages/tile-feature-repair-and-service.image.large_2x.png" alt="Repair">
+                </div>
+            </div>
+        </section>
+
+        <section class="explore-section">
+            <h2>More to Explore</h2>
+            <div class="explore-grid">
+                <div class="explore-card">
+                    <img src="supportImages/tile-feature-round-youtube.png" alt="YouTube">
+                    <h3>Apple Support on YouTube</h3>
+                    <p>Watch videos to get the most out of the latest features, devices, and services.</p>
+                    <a href="#">Visit Apple Support on YouTube <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+                <div class="explore-card">
+                    <img src="supportImages/tile-feature-round-todayatapple.png" alt="Today at Apple">
+                    <h3>Today at Apple</h3>
+                    <p>Learn, create, and be inspired in hands-on sessions at your Apple Store.</p>
+                    <a href="#">Sign up <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-grid">
+            <div class="info-card span-3">
+                <h3>Designing for longevity</h3>
+                <p>At Apple, we are always working to create the best experience for our customers, which is why we design products that last. Designing for longevity is a company-wide effort, informing our earliest decisions long before the first prototype is built and guided by historical customer-use data and predictions on future usage.</p>
+                <p>Learn more about Apple's approach to designing for longevity, which includes access to safe and reliable repairs. <a href="#">View (PDF)</a></p>
+            </div>
+            
+            <div class="info-card span-2">
+                <h3>Beware of counterfeit parts</h3>
+                <p>Some counterfeit and third party power adapters and batteries may not be designed properly and could result in safety issues. To ensure you receive a genuine Apple battery during a battery replacement, we recommend visiting an Apple Store or Authorized Service Provider.</p>
+            </div>
+
+            <div class="info-card span-1">
+                <img src="supportImages/nav-icon-giftcard_2x.svg" alt="Gift Card" class="giftcard-icon">
+                <h3>Be aware of gift card scams</h3>
+                <p>Be aware of scams involving Apple Gift Cards.</p>
+                <a href="#">Learn more <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+        </section>
+
+        <section class="service-programs">
+            <h2>Apple Service Programs</h2>
+            <ul>
+                <li><a href="#">Mac mini Service Program for No Power Issue</a></li>
+                <li><a href="#">iPhone 14 Plus Service Program for Rear Camera Issue</a></li>
+                <li><a href="#">15-inch MacBook Pro Battery Recall Program</a></li>
+                <li><a href="#">See all programs <i class="fa-solid fa-angle-right"></i></a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-legal">
+                <div class="copyright">
+                    Copyright © 2026 Apple Inc. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const closeBtn = document.getElementById('close-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+          navLinks.classList.add('open');
+          hamburger.setAttribute('aria-expanded', 'true');
+        });
+
+        closeBtn.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+    </script>
+</body>
+</html>
