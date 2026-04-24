@@ -10,800 +10,12 @@
     
     <!-- Header CSS -->
     <link rel="stylesheet" href="header.css" />
-    
-    <style>
-        /* ===== GLOBAL STYLES ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 106.25%;
-        }
-
-        body {
-            font-family: "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: #fff;
-            color: #1d1d1f;
-            font-size: 17px;
-            line-height: 1.4705882353;
-            font-weight: 400;
-            letter-spacing: -0.022em;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* ===== MAIN CONTENT ===== */
-        main {
-            padding-top: 44px;
-            max-width: 2560px;
-            margin: 0 auto;
-            background-color: #fff;
-        }
-
-        /* ===== SECTION LAYOUT ===== */
-        .section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            text-align: center;
-            margin-bottom: 12px;
-            background-color: #fff;
-            padding: 0 12px;
-        }
-        .section-hero {
-            grid-template-columns: 1fr;
-            margin: 0 0 12px 0;
-            padding: 0;
-        }
-        .section-hero .tile-wrapper {
-            grid-column: 1 / -1;
-            min-height: 692px;
-            background-color: #f5f5f7;
-        }
-        .tile-wrapper {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            background-color: #f5f5f7;
-            overflow: hidden;
-            min-height: 580px;
-        }
-        .tile-link {
-            position: absolute;
-            inset: 0;
-            z-index: 3;
-            text-decoration: none;
-        }
-        .tile-content {
-            position: absolute;
-            top: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            text-align: center;
-            width: 90%;
-            max-width: 600px;
-        }
-        .tile-copy-wrapper {
-            margin-bottom: 24px;
-        }
-        .tile-headline {
-            font-size: 56px;
-            line-height: 1.07143;
-            font-weight: 600;
-            letter-spacing: -0.015em;
-            color: #1d1d1f;
-            margin: 0 0 8px 0;
-        }
-        .tile-subhead {
-            font-size: 28px;
-            line-height: 1.14286;
-            font-weight: 400;
-            letter-spacing: -0.016em;
-            color: #1d1d1f;
-            margin: 0;
-        }
-        .button, .button-elevated {
-            font-size: 17px;
-            line-height: 1.17648;
-            font-weight: 400;
-            letter-spacing: -0.022em;
-            background: #0071e3;
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 980px;
-            border: none;
-            cursor: pointer;
-            display: inline-block;
-            text-align: center;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-        }
-        .section-hero .button, .section-hero .button-elevated {
-            padding: 11px 22px;
-        }
-        .section-promo .button, .section-promo .button-elevated {
-            padding: 8px 16px;
-            font-size: 14px;
-        }
-        .button-secondary {
-            background: transparent;
-            color: #0066cc;
-            border: 1px solid #0066cc;
-        }
-        .button-secondary:hover {
-            background: #0066cc;
-            color: #fff;
-        }
-        .button:hover, .button-elevated:hover {
-            background: #0076df;
-        }
-        .tile-image-wrapper {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-        }
-        .tile-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        /* Promo section */
-        .section-promo {
-            max-width: 2560px;
-            margin: 0 0 12px 0;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            padding: 0 12px;
-            background-color: #fff;
-        }
-        .section-promo .tile-wrapper {
-            min-height: 580px;
-        }
-        .section-promo .tile-content {
-            top: 48px;
-        }
-        .section-promo .tile-headline {
-            font-size: 40px;
-            font-weight: 700;
-            letter-spacing: -0.003em;
-        }
-        .section-promo .tile-subhead {
-            font-size: 21px;
-            font-weight: 500;
-            margin-top: 12px;
-        }
-        .tile-logo img {
-            height: 40px;
-            width: auto;
-        }
-        .section-promo .tile-ctas {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 32px;
-        }
-        /* Community Letter */
-        [data-tile-id="community-letter"] {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        [data-tile-id="community-letter"] .tile-content {
-            position: relative;
-            top: auto;
-            left: auto;
-            transform: none;
-        }
-        [data-tile-id="community-letter"] .tile-headline.logo-image img {
-            max-width: 560px;
-            width: 100%;
-            height: auto;
-            margin: 0 auto;
-        }
-        [data-tile-id="community-letter"] p.tile-headline {
-            font-size: 40px;
-            margin-top: 20px;
-        }
-
-        /* ===== ENDLESS ENTERTAINMENT ===== */
-        .section-endless-entertainment-gallery {
-            background-color: #f5f5f7;
-            padding: 53px 0 0;
-            margin-top: 12px;
-        }
-        .media-gallery-headline-container {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        .media-gallery-headline {
-            font-size: 56px;
-            font-weight: 600;
-            letter-spacing: -0.015em;
-        }
-        .entertainment-slider-container {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            padding: 0 40px;
-            margin-bottom: 40px;
-        }
-        .entertainment-large-card {
-            flex: 0 0 80%;
-            max-width: 980px;
-            aspect-ratio: 16/9;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            scroll-snap-align: center;
-        }
-        .entertainment-large-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .entertainment-large-card-info {
-            position: absolute;
-            bottom: 40px;
-            left: 40px;
-            display: flex;
-            gap: 24px;
-            align-items: flex-end;
-        }
-        .entertainment-btn-white {
-            background: #fff;
-            color: #1d1d1f;
-            padding: 8px 18px;
-            border-radius: 980px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-        }
-        .entertainment-card-text {
-            color: #fff;
-        }
-        .entertainment-card-category {
-            font-weight: 600;
-            font-size: 17px;
-        }
-        .entertainment-card-desc {
-            font-size: 15px;
-            opacity: 0.8;
-        }
-        .media-gallery-dotnav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        .dotnav-items {
-            display: flex;
-            gap: 12px;
-            list-style: none;
-        }
-        .dotnav-link {
-            display: block;
-            width: 8px;
-            height: 8px;
-            background-color: rgba(0,0,0,0.4);
-            border-radius: 50%;
-        }
-        .dotnav-item.current .dotnav-link {
-            background-color: rgba(0,0,0,0.8);
-            transform: scale(1.2);
-        }
-        .visuallyhidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            overflow: hidden;
-        }
-        .entertainment-small-grid {
-            display: flex;
-            overflow-x: auto;
-            gap: 16px;
-            padding: 40px 40px 60px;
-            scrollbar-width: thin;
-        }
-        .entertainment-small-item {
-            flex: 0 0 280px;
-            aspect-ratio: 16/10;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-        .entertainment-small-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .entertainment-small-logo {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(10px);
-            padding: 4px 10px;
-            border-radius: 20px;
-            color: #fff;
-            font-size: 12px;
-            z-index: 2;
-        }
-        .entertainment-small-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 20px;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            z-index: 2;
-        }
-        .entertainment-small-title {
-            font-size: 17px;
-            font-weight: 600;
-            color: #fff;
-        }
-        .entertainment-small-footer {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 12px;
-        }
-        .entertainment-small-desc {
-            font-size: 13px;
-            color: #fff;
-            opacity: 0.8;
-        }
-        .entertainment-small-btn {
-            background: rgba(255,255,255,0.25);
-            backdrop-filter: blur(10px);
-            padding: 6px 14px;
-            border-radius: 980px;
-            color: #fff;
-            text-decoration: none;
-            font-size: 12px;
-        }
-        .entertainment-small-link {
-            position: absolute;
-            inset: 0;
-            z-index: 3;
-        }
-
-        /* ===== FOOTER (APPLE-EXAKT) ===== */
-        .ac-gf {
-            background-color: #f5f5f7;
-            color: #1d1d1f;
-            font-size: 12px;
-            line-height: 1.33337;
-            border-top: 1px solid #d2d2d7;
-            margin-top: 20px;
-        }
-        .ac-gf-content {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 20px 22px 32px;
-        }
-        .ac-gf-label {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            overflow: hidden;
-        }
-        .ac-gf-sosumi {
-            border-bottom: 1px solid #d2d2d7;
-            padding-bottom: 16px;
-            margin-bottom: 16px;
-            color: #6e6e73;
-        }
-        .ac-gf-sosumi ol, .ac-gf-sosumi ul {
-            list-style: none;
-        }
-        .ac-gf-sosumi li {
-            margin-bottom: 12px;
-        }
-        .ac-gf-sosumi a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        .ac-gf-sosumi a:hover {
-            text-decoration: underline;
-        }
-        .ac-gf-directory {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            border-bottom: 1px solid #d2d2d7;
-            padding-bottom: 16px;
-            margin-bottom: 16px;
-        }
-        .ac-gf-directory-column {
-            flex: 1;
-            min-width: 160px;
-            margin-bottom: 20px;
-        }
-        .ac-gf-directory-column-section {
-            margin-bottom: 24px;
-        }
-        .ac-gf-directory-column-section h3 {
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .ac-gf-directory-column-section ul {
-            list-style: none;
-        }
-        .ac-gf-directory-column-section li {
-            margin-bottom: 8px;
-        }
-        .ac-gf-directory-column-section a {
-            color: #424245;
-            text-decoration: none;
-            font-size: 12px;
-        }
-        .ac-gf-directory-column-section a:hover {
-            color: #1d1d1f;
-            text-decoration: underline;
-        }
-        .ac-gf-footer-shop {
-            margin-bottom: 12px;
-        }
-        .ac-gf-footer-shop a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        .ac-gf-footer-end {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .ac-gf-footer-legal {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            align-items: center;
-        }
-        .ac-gf-footer-legal-copyright {
-            color: #6e6e73;
-        }
-        .ac-gf-footer-legal-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            list-style: none;
-        }
-        .ac-gf-footer-legal-links a {
-            color: #424245;
-            text-decoration: none;
-        }
-        .ac-gf-footer-legal-links a:hover {
-            color: #1d1d1f;
-            text-decoration: underline;
-        }
-        .ac-gf-footer-locale a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        @media (max-width: 734px) {
-            .ac-gf-directory {
-                flex-direction: column;
-            }
-            .ac-gf-footer-end {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
-            .ac-gf-footer-legal {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-        @media (max-width: 1068px) {
-            .ac-gf-content {
-                padding: 20px 16px 32px;
-            }
-        }
-
-        /* Responsiva justeringar */
-        @media (max-width: 734px) {
-            .section, .section-promo { grid-template-columns: 1fr; padding: 0 12px; }
-            .tile-headline { font-size: 32px; }
-            .tile-subhead { font-size: 19px; }
-            .section-promo .tile-headline { font-size: 28px; }
-            .section-promo .tile-subhead { font-size: 17px; }
-            .media-gallery-headline { font-size: 32px; }
-            .entertainment-large-card { flex: 0 0 90%; }
-            .entertainment-small-item { flex: 0 0 240px; }
-            [data-tile-id="community-letter"] .tile-headline.logo-image img { max-width: 400px; }
-        }
-        @media (max-width: 480px) {
-            .tile-headline { font-size: 28px; }
-            .entertainment-small-item { flex: 0 0 200px; }
-            [data-tile-id="community-letter"] .tile-headline.logo-image img { max-width: 280px; }
-        }
-    </style>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- HEADER (från header.html & header.css) -->
-    <header class="site-header">
-        <nav class="nav-bar" aria-label="Huvudnavigation">
-
-            <div class="nav-inner">
-
-                <!-- Apple-logotyp -->
-                <a href="#" class="nav-logo" aria-label="Apple startsida">
-                    <i class="fa-brands fa-apple"></i>
-                </a>
-
-                <!-- Hamburger-knapp (mobil) -->
-                <button class="nav-hamburger" aria-label="Öppna meny" aria-expanded="false" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-
-                <!-- Navigeringslänkar -->
-                <ul class="nav-links" id="nav-links">
-
-                    <!-- Store – med dropdown -->
-                    <li class="nav-item has-dropdown">
-                        <a href="#" class="nav-link">Store</a>
-
-                        <div class="dropdown">
-                            <div class="dropdown-inner">
-
-                                <!-- Kolumn 1: Shop -->
-                                <div class="dropdown-col">
-                                    <p class="dropdown-heading">Shop</p>
-                                    <ul>
-                                        <li><a class="dropdown-link large" href="#">Shop the Latest</a></li>
-                                        <li><a class="dropdown-link large" href="#">Mac</a></li>
-                                        <li><a class="dropdown-link large" href="#">iPad</a></li>
-                                        <li><a class="dropdown-link large" href="#">iPhone</a></li>
-                                        <li><a class="dropdown-link large" href="#">Apple Watch</a></li>
-                                        <li><a class="dropdown-link large" href="#">Apple Vision Pro</a></li>
-                                        <li><a class="dropdown-link large" href="#">AirPods</a></li>
-                                        <li><a class="dropdown-link large" href="#">Accessories</a></li>
-                                    </ul>
-                                </div>
-
-                                <!-- Kolumn 2: Quick Links -->
-                                <div class="dropdown-col">
-                                    <p class="dropdown-heading">Quick Links</p>
-                                    <ul>
-                                        <li><a class="dropdown-link" href="#">Find a Store</a></li>
-                                        <li><a class="dropdown-link" href="#">Order Status</a></li>
-                                        <li><a class="dropdown-link" href="#">Apple Trade In</a></li>
-                                        <li><a class="dropdown-link" href="#">Financing</a></li>
-                                        <li><a class="dropdown-link" href="#">Personal Setup</a></li>
-                                    </ul>
-                                </div>
-
-                                <!-- Kolumn 3: Special Stores -->
-                                <div class="dropdown-col">
-                                    <p class="dropdown-heading">Shop Special Stores</p>
-                                    <ul>
-                                        <li><a class="dropdown-link" href="#">Certified Refurbished</a></li>
-                                        <li><a class="dropdown-link" href="#">Education</a></li>
-                                        <li><a class="dropdown-link" href="#">Business</a></li>
-                                        <li><a class="dropdown-link" href="#">Veterans and Military</a></li>
-                                        <li><a class="dropdown-link" href="#">Government</a></li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Mac -->
-                    <li class="nav-item has-dropdown">
-                        <a href="#" class="nav-link">Mac</a>
-                        <div class="dropdown">
-                            <div class="dropdown-inner">
-                                <div class="dropdown-col">
-                                    <p class="dropdown-heading">Utforska Mac</p>
-                                    <ul>
-                                        <li><a class="dropdown-link large" href="#">MacBook Air</a></li>
-                                        <li><a class="dropdown-link large" href="#">MacBook Pro</a></li>
-                                        <li><a class="dropdown-link large" href="#">iMac</a></li>
-                                        <li><a class="dropdown-link large" href="#">Mac mini</a></li>
-                                        <li><a class="dropdown-link large" href="#">Mac Pro</a></li>
-                                    </ul>
-                                </div>
-                                <div class="dropdown-col">
-                                    <p class="dropdown-heading">Quick Links</p>
-                                    <ul>
-                                        <li><a class="dropdown-link" href="#">Jämför</a></li>
-                                        <li><a class="dropdown-link" href="#">macOS</a></li>
-                                        <li><a class="dropdown-link" href="#">Apple Trade In</a></li>
-                                        <li><a class="dropdown-link" href="#">Finansiering</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- iPad -->
-                    <li class="nav-item has-dropdown">
-                        <a href="#" class="nav-link">iPad</a>
-                        <div class="dropdown">
-                            <div class="dropdown-inner">
-                                <div class="dropdown-col">
-                                    <p class="dropdown-heading">Utforska iPad</p>
-                                    <ul>
-                                        <li><a class="dropdown-link large" href="#">iPad Pro</a></li>
-                                        <li><a class="dropdown-link large" href="#">iPad Air</a></li>
-                                        <li><a class="dropdown-link large" href="#">iPad mini</a></li>
-                                        <li><a class="dropdown-link large" href="#">iPad</a></li>
-                                    </ul>
-                                </div>
-                                <div class="dropdown-col">
-                                    <p class="dropdown-heading">Tillbehör</p>
-                                    <ul>
-                                        <li><a class="dropdown-link" href="#">Apple Pencil</a></li>
-                                        <li><a class="dropdown-link" href="#">Tangentbord</a></li>
-                                        <li><a class="dropdown-link" href="#">Fodral</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- iPhone -->
-                    <li class="nav-item has-dropdown">
-                        <a href="#" class="nav-link">iPhone</a>
-                        <div class="dropdown">
-                            <div class="dropdown-inner">
-                                <div class="dropdown-col">
-                                    <p class="dropdown-heading">Utforska iPhone</p>
-                                    <ul>
-                                        <li><a class="dropdown-link large" href="#">iPhone 16 Pro</a></li>
-                                        <li><a class="dropdown-link large" href="#">iPhone 16</a></li>
-                                        <li><a class="dropdown-link large" href="#">iPhone 15</a></li>
-                                        <li><a class="dropdown-link large" href="#">Jämför</a></li>
-                                    </ul>
-                                </div>
-                                <div class="dropdown-col">
-                                    <p class="dropdown-heading">Quick Links</p>
-                                    <ul>
-                                        <li><a class="dropdown-link" href="#">Apple Trade In</a></li>
-                                        <li><a class="dropdown-link" href="#">Finansiering</a></li>
-                                        <li><a class="dropdown-link" href="#">iPhone Tillbehör</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Watch -->
-                    <li class="nav-item has-dropdown">
-                        <a href="#" class="nav-link">Watch</a>
-                        <div class="dropdown">
-                            <div class="dropdown-inner">
-                                <div class="dropdown-col">
-                                    <p class="dropdown-heading">Utforska Watch</p>
-                                    <ul>
-                                        <li><a class="dropdown-link large" href="#">Apple Watch Series 11</a></li>
-                                        <li><a class="dropdown-link large" href="#">Apple Watch Ultra 2</a></li>
-                                        <li><a class="dropdown-link large" href="#">Apple Watch SE</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Vision -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Vision</a>
-                    </li>
-
-                    <!-- AirPods -->
-                    <li class="nav-item has-dropdown">
-                        <a href="#" class="nav-link">AirPods</a>
-                        <div class="dropdown">
-                            <div class="dropdown-inner">
-                                <div class="dropdown-col">
-                                    <p class="dropdown-heading">Utforska AirPods</p>
-                                    <ul>
-                                        <li><a class="dropdown-link large" href="#">AirPods 4</a></li>
-                                        <li><a class="dropdown-link large" href="#">AirPods Pro 2</a></li>
-                                        <li><a class="dropdown-link large" href="#">AirPods Max</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- TV & Home -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">TV &amp; Home</a>
-                    </li>
-
-                    <!-- Entertainment -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Entertainment</a>
-                    </li>
-
-                    <!-- Accessories -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Accessories</a>
-                    </li>
-
-                    <!-- Support -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Support</a>
-                    </li>
-
-                </ul>
-
-                <!-- Ikoner: sök + varukorg -->
-                <div class="nav-icons">
-                    <a href="#" class="nav-icon-link" aria-label="Sök">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                    <a href="#" class="nav-icon-link" aria-label="Varukorg">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                    </a>
-                </div>
-
-            </div>
-        </nav>
-
-        <!-- Close-knapp i meny (mobil) - UTANFÖR nav-bar -->
-        <button class="nav-close" aria-label="Stäng meny" id="close-btn">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-    </header>
-
-    <!-- JavaScript för hamburger (mobil) -->
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const closeBtn = document.getElementById('close-btn');
-        const navLinks = document.getElementById('nav-links');
-        const navItems = document.querySelectorAll('.nav-link');
-
-        // Öppna meny
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.add('open');
-            hamburger.classList.add('active');
-            hamburger.setAttribute('aria-expanded', 'true');
-        });
-
-        // Stäng meny
-        closeBtn.addEventListener('click', () => {
-            navLinks.classList.remove('open');
-            hamburger.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-        });
-
-        // Stäng meny när man klickar på en länk
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-            });
-        });
-
-        // Stäng meny när man klickar utanför
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.nav-bar') && !e.target.closest('.nav-links') && navLinks.classList.contains('open')) {
-                navLinks.classList.remove('open');
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-            }
-        });
-    </script>
+    <!-- Header laddas från header.html via JavaScript -->
+    <div id="header-container"></div>
 
     <main class="main">
         <!-- iPhone Hero -->
@@ -821,7 +33,10 @@
                     </div>
                 </div>
                 <div class="tile-image-wrapper">
-                    <img src="Images/hero_iphone_family__fuz5j2v5xx6y_largetall_2x.jpg" alt="iPhone">
+                    <picture>
+                        <source media="(max-width: 734px)" srcset="Images/hero_iphone_family__fuz5j2v5xx6y_largetall_2x.jpg">
+                        <img src="Images/hero_iphone_family__fuz5j2v5xx6y_largetall_2x.jpg" alt="iPhone">
+                    </picture>
                 </div>
             </div>
         </section>
@@ -841,7 +56,10 @@
                     </div>
                 </div>
                 <div class="tile-image-wrapper">
-                    <img src="Images/hero_macbook_neo__gnm3snkti4a6_largetall_2x.jpg" alt="MacBook Neo">
+                    <picture>
+                        <source media="(max-width: 734px)" srcset="Images/hero_macbook_neo__gnm3snkti4a6_largetall_2x.jpg">
+                        <img src="Images/hero_macbook_neo__gnm3snkti4a6_largetall_2x.jpg" alt="MacBook Neo">
+                    </picture>
                 </div>
             </div>
         </section>
@@ -861,7 +79,10 @@
                     </div>
                 </div>
                 <div class="tile-image-wrapper">
-                    <img src="Images/promo_ipad_air_m4__f9ie3h3pzr6m_large_2x.jpg" alt="iPad Air">
+                    <picture>
+                        <source media="(max-width: 734px)" srcset="Images/promo_ipad_air_m4__f9ie3h3pzr6m_small.jpg">
+                        <img src="Images/promo_ipad_air_m4__f9ie3h3pzr6m_large_2x.jpg" alt="iPad Air">
+                    </picture>
                 </div>
             </div>
         </section>
@@ -890,7 +111,10 @@
                         <a class="button button-secondary" href="/us/shop/goto/buy_watch/apple_watch_series_11">Buy</a>
                     </div>
                 </div>
-                <div class="tile-image-wrapper"><img src="Images/hero_apple_watch_series_11__bdz1mml4dx6q_largetall_2x.jpg" alt="Apple Watch"></div>
+                <div class="tile-image-wrapper"><picture>
+                        <source media="(max-width: 734px)" srcset="Images/promo_apple_watch_series_11__b63hxviqvonm_small.jpg">
+                        <img src="Images/hero_apple_watch_series_11__bdz1mml4dx6q_largetall_2x.jpg" alt="Apple Watch">
+                    </picture></div>
             </div>
         </section>
 
@@ -908,7 +132,10 @@
                         <a class="button button-secondary" href="/us/shop/goto/buy_mac/macbook_air">Buy</a>
                     </div>
                 </div>
-                <div class="tile-image-wrapper"><img src="Images/promo_macbook_air_m5__dibaetiq7nu6_large_2x.jpg" alt="MacBook Air"></div>
+                <div class="tile-image-wrapper"><picture>
+                        <source media="(max-width: 734px)" srcset="Images/promo_macbook_air_m5__dibaetiq7nu6_small.jpg">
+                        <img src="Images/promo_macbook_air_m5__dibaetiq7nu6_large_2x.jpg" alt="MacBook Air">
+                    </picture></div>
             </div>
             <div class="tile-wrapper" data-tile-id="airpods-pro-3">
                 <a class="tile-link" href="/airpods-pro/"></a>
@@ -922,7 +149,10 @@
                         <a class="button button-secondary" href="/us/shop/goto/buy_airpods/airpods_pro_3">Buy</a>
                     </div>
                 </div>
-                <div class="tile-image-wrapper"><img src="Images/promo_airpodspro_3__f6xmza7bglei_large_2x.jpg" alt="AirPods Pro 3"></div>
+                <div class="tile-image-wrapper"><picture>
+                        <source media="(max-width: 734px)" srcset="Images/promo_airpodspro_3__f6xmza7bglei_large_2x.jpg">
+                        <img src="Images/promo_airpodspro_3__f6xmza7bglei_large_2x.jpg" alt="AirPods Pro 3">
+                    </picture></div>
             </div>
         </section>
 
@@ -937,7 +167,10 @@
                     </div>
                     <div class="tile-ctas"><a class="button" href="/trade-in/">Get estimate</a></div>
                 </div>
-                <div class="tile-image-wrapper"><img src="Images/promo_apple_business__fi88n3dz0emq_large_2x.jpg" alt="Trade In"></div>
+                <div class="tile-image-wrapper"><picture>
+                        <source media="(max-width: 734px)" srcset="Images/promo_apple_business__fi88n3dz0emq_large_2x.jpg">
+                        <img src="Images/promo_apple_business__fi88n3dz0emq_large_2x.jpg" alt="Trade In">
+                    </picture></div>
             </div>
             <div class="tile-wrapper" data-tile-id="apple-card">
                 <a class="tile-link" href="/apple-card/"></a>
@@ -1055,6 +288,30 @@
             </section>
         </div>
     </footer>
+
+    <!-- Ladda header från header.html -->
+    <script>
+        // Ladda header.html innehål in i header-container
+        fetch('header.html')
+            .then(response => response.text())
+            .then(html => {
+                // Extrahera bara body-innehål från header.html
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const headerContent = doc.querySelector('header');
+                const headerScript = doc.querySelector('script');
+                
+                if (headerContent) {
+                    document.getElementById('header-container').appendChild(headerContent.cloneNode(true));
+                }
+                
+                // Kör header-scriptets funktionalitet
+                if (headerScript) {
+                    eval(headerScript.textContent);
+                }
+            })
+            .catch(error => console.error('Kunde inte ladda header:', error));
+    </script>
 
     <script>
         // Slider-funktionalitet för stora kort

@@ -134,11 +134,13 @@ main { padding-top: 44px; max-width: 2560px; margin: 0 auto; background-color: #
     border: 1px solid rgb(0, 102, 204);
 }
 .button-secondary:hover {
-    background: rgb(0, 102, 204);
+    background: rgb(0, 102, 204) !important;
     color: #fff;
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
 }
 .button:hover, .button-elevated:hover {
-    background: #0076DF;
+    background: #0076DF !important;
     text-decoration: none;
 }
 
@@ -393,4 +395,268 @@ main { padding-top: 44px; max-width: 2560px; margin: 0 auto; background-color: #
     .tile-headline { font-size: 28px; }
     .entertainment-small-item { flex: 0 0 200px; }
     [data-tile-id="community-letter"] .tile-headline.logo-image img { max-width: 280px; }
+    
+    /* Knappar på mobil */
+    .tile-ctas {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    
+    .button, .button-elevated, .button-secondary {
+        padding: 8px 14px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    
+    .section-hero .button, .section-hero .button-elevated {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+}
+
+/* ===== APPLE FOOTER (ac-gf) ===== */
+.ac-gf {
+    background: #f5f5f7;
+    border-top: 1px solid #d2d2d7;
+    color: #1d1d1f;
+    font-size: 12px;
+    line-height: 1.33333;
+    font-family: "SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.ac-gf-content {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 22px;
+}
+
+/* Hidden label */
+.ac-gf-label {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(0 0 99.9% 99.9%);
+    clip-path: inset(0 0 99.9% 99.9%);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    border: 0;
+}
+
+/* Sosumi (small print) */
+.ac-gf-sosumi {
+    padding: 20px 0;
+    font-size: 11px;
+    line-height: 1.45454;
+    color: #666;
+    border-bottom: 1px solid #d2d2d7;
+}
+
+.ac-gf-sosumi ol,
+.ac-gf-sosumi ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ac-gf-sosumi li {
+    margin-bottom: 8px;
+}
+
+.ac-gf-sosumi a {
+    color: #1d1d1f;
+    text-decoration: none;
+}
+
+.ac-gf-sosumi a:hover {
+    text-decoration: underline;
+}
+
+/* Directory (main footer links) */
+.ac-gf-directory {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 22px;
+    padding: 20px 0;
+    border-bottom: 1px solid #d2d2d7;
+}
+
+.ac-gf-directory-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ac-gf-directory-column-section h3 {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.33333;
+    color: #1d1d1f;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+}
+
+.ac-gf-directory-column-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ac-gf-directory-column-section li {
+    margin-bottom: 8px;
+}
+
+.ac-gf-directory-column-section a {
+    color: #1d1d1f;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 1.33333;
+    transition: color 0.15s ease;
+}
+
+.ac-gf-directory-column-section a:hover {
+    color: #1d1d1f;
+    text-decoration: underline;
+}
+
+/* Footer bottom section */
+.ac-gf-footer {
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ac-gf-footer-shop {
+    font-size: 12px;
+    line-height: 1.33333;
+    color: #1d1d1f;
+}
+
+.ac-gf-footer-shop a {
+    color: #1d1d1f;
+    text-decoration: none;
+}
+
+.ac-gf-footer-shop a:hover {
+    text-decoration: underline;
+}
+
+.ac-gf-footer-end {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #d2d2d7;
+}
+
+.ac-gf-footer-legal {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    line-height: 1.33333;
+}
+
+.ac-gf-footer-legal-copyright {
+    color: #666;
+    font-size: 12px;
+}
+
+.ac-gf-footer-legal-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 16px;
+}
+
+.ac-gf-footer-legal-links li {
+    display: inline;
+}
+
+.ac-gf-footer-legal-links a {
+    color: #1d1d1f;
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.15s ease;
+}
+
+.ac-gf-footer-legal-links a:hover {
+    text-decoration: underline;
+}
+
+.ac-gf-footer-locale {
+    font-size: 12px;
+    line-height: 1.33333;
+}
+
+.ac-gf-footer-locale a {
+    color: #1d1d1f;
+    text-decoration: none;
+}
+
+.ac-gf-footer-locale a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive footer */
+@media (max-width: 1068px) {
+    .ac-gf-directory {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 734px) {
+    .ac-gf-directory {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        padding: 16px 0;
+    }
+    
+    .ac-gf-footer-end {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .ac-gf-footer-legal {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .ac-gf-footer-legal-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ac-gf-content {
+        padding: 0 16px;
+    }
+    
+    .ac-gf-directory {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 12px 0;
+    }
+    
+    .ac-gf-directory-column {
+        gap: 12px;
+    }
+    
+    .ac-gf-footer {
+        padding: 12px 0;
+    }
 }

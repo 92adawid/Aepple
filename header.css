@@ -8,12 +8,15 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  letter-spacing: inherit;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
   min-height: 100vh;
   background: #f5f5f7;
+  margin: 0;
+  padding: 0;
 }
 
 /* ---------- Header-wrapper ---------- */
@@ -43,8 +46,8 @@ body {
   height: 44px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
+  gap: 8px;
+  padding: 0 22px;
 }
 
 /* ---------- Logotyp (Apple-ikon) ---------- */
@@ -54,8 +57,14 @@ body {
   text-decoration: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   transition: opacity 0.15s;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  margin-left: -14px;
 }
 
 .nav-logo:hover {
@@ -67,9 +76,9 @@ body {
   list-style: none;
   display: flex;
   align-items: center;
-  flex: 1;
-  justify-content: center;
-  gap: 0;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-item {
@@ -77,41 +86,60 @@ body {
 }
 
 .nav-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 12px;
+  line-height: 1.33333;
   font-weight: 400;
   color: #1d1d1f;
   text-decoration: none;
-  padding: 0 10px;
-  line-height: 44px;
+  padding: 0 8px;
+  height: 44px;
   white-space: nowrap;
-  transition: color 0.15s;
+  transition: color 0.15s cubic-bezier(0.28, 0.11, 0.32, 1);
+  letter-spacing: -0.01em;
 }
 
 .nav-link:hover {
   color: rgba(0, 0, 0, 0.5);
 }
 
+.nav-link:focus-visible {
+  outline: 2px solid #0071e3;
+  outline-offset: 1px;
+}
+
 /* ---------- Ikon-knappar (sök + varukorg) ---------- */
 .nav-icons {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 .nav-icon-link {
   color: #1d1d1f;
   font-size: 13px;
   text-decoration: none;
-  padding: 6px;
+  padding: 0;
   display: flex;
   align-items: center;
-  transition: opacity 0.15s;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  transition: color 0.2s cubic-bezier(0.28, 0.11, 0.32, 1);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .nav-icon-link:hover {
-  opacity: 0.5;
+  color: #1d1d1f;
+}
+
+.nav-icon-link:focus-visible {
+  outline: 2px solid #0071e3;
+  outline-offset: 1px;
 }
 
 /* ---------- Hamburger-knapp (dold på desktop) ---------- */
@@ -309,10 +337,10 @@ body {
   .nav-icons {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     flex-shrink: 0;
     position: fixed;
-    top: 8px;
+    top: 0px;
     right: 50px;
     z-index: 1000;
   }
@@ -362,14 +390,22 @@ body {
   }
 
   .nav-icons {
-    top: 8px;
-    right: 50px;
-    gap: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-left: 0;
+    flex-shrink: 0;
   }
 
   .nav-icon-link {
     font-size: 12px;
-    padding: 4px;
+    padding: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
